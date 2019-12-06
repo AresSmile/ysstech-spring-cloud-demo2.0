@@ -1,0 +1,16 @@
+spring: 
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: config-server
+      name: user-service
+      profile: dev
+    inetutils:
+      preferred-networks: 
+      - 192.168.74
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:2001/eureka
