@@ -14,10 +14,10 @@
         <module>demo-user</module>
         <module>demo-ticket</module>
         <module>demo-zuul</module>
+        <module>demo-hystrix-dashboard</module>
     </modules>
 
     <dependencies>
-        <!-- 引入aop支持 -->
         <!--支持热部署 -->
         <dependency>
             <groupId>org.springframework</groupId>
@@ -67,6 +67,19 @@
             <artifactId>mybatis-plus-boot-starter</artifactId>
             <version>3.0.6</version>
         </dependency>
+
+        <!--swagger包引用 -->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>2.6.1</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>2.6.1</version>
+        </dependency>
+
     </dependencies>
 
     <build>

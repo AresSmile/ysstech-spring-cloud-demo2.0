@@ -13,6 +13,13 @@ spring:
     url: jdbc:mysql://localhost:3306/ysstech?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf8&autoReconnect=true&allowMultiQueries=true
     username: root
     password: root
+  #定义thymeleaf视图解析器
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML
+    encoding: UTF-8
+
 
 #mybatis-plush配置
 mybatis-plus:
@@ -27,20 +34,20 @@ eureka:
   client:
     service-url: 
       defaultZone: http://127.0.0.1:2002/eureka
-#负载均衡全局配置 
+#负载均衡全局配置
 ribbon:
   ConnectTimeout: 1000
   ReadTimeout: 1000
-  
-#对特定服务负载均衡的配置  
+
+#对特定服务负载均衡的配置
 user-service:
   ribbon:
     ConnectTimeout: 500
     ReadTimeout: 1000
     MaxAutoRetriesNextServer: 2
     MaxAutoRetries: 1
-  
-  
+
+#feign 默认没有启用 hystrix，添加配置，启用 hystrix
 feign:
   hystrix:
     enabled: true
@@ -52,10 +59,11 @@ hystrix:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 500  
-            
+            timeoutInMilliseconds: 500
+
+#暴露 hystrix服务的 端点
 management:
   endpoints:
     web:
       exposure:
-        include: hystrix.stream 
+        include: hystrix.stream

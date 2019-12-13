@@ -12,4 +12,9 @@ public interface TicketService {
 
 	List<Ticket> getTest();
 
+	List<Ticket> testSql();
+
+	Integer insert();
+
+	Integer insertmapper();
 }

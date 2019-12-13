@@ -2,7 +2,10 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.jt.mapper.CartMapper">
-	
+<mapper namespace="com.ysstech.demo.ticket.mapper.TicketMapper">
+	<insert id="insertMapper">
+        insert into ticket values (null,"新疆","云南","成人票",20)
+    </insert>
+
 	
 </mapper>

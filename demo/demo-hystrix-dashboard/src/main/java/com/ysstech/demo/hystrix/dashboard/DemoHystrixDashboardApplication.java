@@ -1,20 +1,23 @@
-package com.ysstech.demo.user;
+package com.ysstech.demo.hystrix.dashboard;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboard;
-import org.springframework.cloud.openfeign.EnableFeignClients;
-
-@EnableCircuitBreaker
+/*
+ * @Author huangyuan
+ * @Description //熔断仪表盘 17:51
+ * @Date 17:51 2019/12/9
+ * @Param
+ * @returnType
+ **/
 @EnableDiscoveryClient
-@EnableFeignClients
+@EnableHystrixDashboard //熔断器仪表盘
 @SpringBootApplication
-public class DemoUserApplication {
+public class DemoHystrixDashboardApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(DemoUserApplication.class, args);
+        SpringApplication.run(DemoHystrixDashboardApplication.class, args);
     }
 
 }

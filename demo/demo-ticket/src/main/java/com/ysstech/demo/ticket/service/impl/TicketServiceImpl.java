@@ -44,4 +44,25 @@ public class TicketServiceImpl implements TicketService {
 		return selectList;
 	}
 
+	@Override
+	public List<Ticket> testSql() {
+		List<Ticket> list=ticketMapper.testSql();
+		return list;
+	}
+
+	@Override
+	public Integer insert() {
+		Ticket ticket = new Ticket(null,"哈哈","喽喽","儿童票",4);
+		int insert = ticketMapper.insert(ticket);
+		return insert;
+	}
+
+	@Override
+	public Integer insertmapper() {
+		Integer row=ticketMapper.insertMapper();
+
+		return row;
+	}
+
+
 }

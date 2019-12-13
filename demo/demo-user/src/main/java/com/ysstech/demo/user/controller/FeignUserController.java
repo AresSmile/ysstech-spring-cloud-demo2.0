@@ -18,7 +18,15 @@ public class FeignUserController {
 	private TicketFeignService ticketService;
 	
 	
-	//通过微服务调用ticket-service服务,做了降级处理TicketFeignServiceFB，及负载均衡
+
+
+		/*
+		 * @Author huangyuan
+		 * @Description //通过微服务调用ticket-service服务,做了降级处理TicketFeignServiceFB以及熔断 ，和负载均衡,18:01
+		 * @Date 18:01 2019/12/9
+		 * @Param [ticketId]
+		 * @returnType com.ysstech.demo.commons.web.util.JsonResult<java.util.List<com.ysstech.demo.commons.entity.Ticket>>
+		 **/
 		@GetMapping("/ticket-service/{ticketId}")
 		public JsonResult<List<Ticket>> getTicket(@PathVariable Integer ticketId) {
 			return ticketService.getTicket(ticketId);
