@@ -6,7 +6,7 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/AresSmile/ysstech-spring-cloud-demo2.0/config
+          uri: https://github.com/AresSmile/ysstech-spring-cloud-demo2.0
           searchPaths: config
           username: AresSmile
           password: hy19960906

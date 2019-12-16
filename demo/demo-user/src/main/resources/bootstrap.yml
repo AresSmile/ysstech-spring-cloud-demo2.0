@@ -1,13 +1,19 @@
+server:
+  port: 3002 #本地开发环境时用，生产部署时，应该设置为0，系统随机创建端口
 spring:
+  application:
+    name: user-service
   profiles:
     active: dev
-  application:
-    name: user-server #服务名
   cloud:
     config:
-      name: ${spring.application.name}
-      label: ${spring.profiles.label:dev} #对应前配置文件的git分支 #/{label}/{application}-{profile}.yml
-      profile: ${spring.profiles.active:dev} #对应前配置文件中的{profile}部分
       discovery:
-        enabled: true #开启配置中心服务发现
-        service-id: config-server #配置中心的servieId，即服务名
+        enabled: true
+        service-id: config-server
+      name: ${spring.application.name}  #对应前配置文件的git分支 #/{application}-{profile}.yml
+      profile: ${spring.profiles.active:dev} #对应前配置文件中的{profile}部分
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:2002/eureka
