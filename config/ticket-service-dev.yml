@@ -1,0 +1,40 @@
+
+spring:
+  application:
+    name: ticket-service
+
+  datasource:
+        #引入druid数据源
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/ysstech?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf8&autoReconnect=true&allowMultiQueries=true
+    username: root
+    password: root
+
+  #定义thymeleaf视图解析器
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML
+    encoding: UTF-8
+
+
+
+
+
+#mybatis-plush配置
+mybatis-plus:
+  type-aliases-package: com.yss.commons.demo.entity
+  mapper-locations: classpath:/mybatis/mappers/*.xml
+  configuration:
+    map-underscore-to-camel-case: true 
+    
+server:
+  port: 8002
+  
+eureka:
+  client:
+    service-url: 
+      defaultZone: http://127.0.0.1:2002/eureka
+
+
