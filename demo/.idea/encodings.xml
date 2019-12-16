@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" addBOMForNewFiles="with NO BOM">
+    <file url="file://$PROJECT_DIR$/demo-config" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/demo-eureka" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/demo-hystrix-dashboard" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/demo-ticket" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/demo-user" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/demo-zuul" charset="UTF-8" />
+  </component>
+</project>

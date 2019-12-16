@@ -15,6 +15,7 @@
         <module>demo-ticket</module>
         <module>demo-zuul</module>
         <module>demo-hystrix-dashboard</module>
+        <module>demo-config</module>
     </modules>
 
     <dependencies>

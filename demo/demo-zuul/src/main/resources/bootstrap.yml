@@ -2,7 +2,7 @@ spring:
   profiles:
     active: dev
   application:
-    name: ticket-server #服务名
+    name: zuul #服务名
   cloud:
     config:
       name: ${spring.application.name}
@@ -11,3 +11,9 @@ spring:
       discovery:
         enabled: true #开启配置中心服务发现
         service-id: config-server #配置中心的servieId，即服务名
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:2002/eureka

@@ -1,5 +1,13 @@
 spring:
+  profiles:
+    active: dev
+  application:
+    name: eureka-server #服务名
   cloud:
-    inetutils:
-      preferred-networks: 
-      - 192.168.74
+    config:
+      name: ${spring.application.name}
+      label: ${spring.profiles.label:dev} #对应前配置文件的git分支 #/{label}/{application}-{profile}.yml
+      profile: ${spring.profiles.active:dev} #对应前配置文件中的{profile}部分
+      discovery:
+        enabled: true #开启配置中心服务发现
+        service-id: config-server #配置中心的servieId，即服务名

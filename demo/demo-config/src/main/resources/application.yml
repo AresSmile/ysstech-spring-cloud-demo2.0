@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: config-server
+
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/AresSmile/ysstech-spring-cloud-demo2.0/config
+          searchPaths: config
+          username: AresSmile
+          password: hy19960906
+
+server:
+  port: 8001
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:2002/eureka
