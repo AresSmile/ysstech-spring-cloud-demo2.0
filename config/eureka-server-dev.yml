@@ -11,6 +11,8 @@ eureka:
   client:
     register-with-eureka: false
     fetch-registry: false
+    service-url:
+      defaultZone: http://127.0.0.1:2002/eureka
 
     
     
