@@ -1,5 +1,7 @@
 package test;
 
+import com.linuxense.javadbf.DBFField;
+import com.linuxense.javadbf.DBFReader;
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
@@ -79,6 +81,63 @@ public class TestRead {
                         System.out.println("hhhhh" + id + name + password);
 
                     }
+                } else if (".bdf".equals(lastName) ){
+
+
+                    String path = files[i].getPath();
+                    //读取文件的输入流
+                    FileInputStream fileInputStream = new FileInputStream(path);
+                    //根据输入流初始化一个DBFReader实例，用来读取DBF文件信息
+                    DBFReader reader = new DBFReader(fileInputStream);
+                    //设置字符集，避免中文乱码
+                    reader.setCharactersetName("utf-8");
+
+                    //获取dbf数据字段数量
+                    int fieldsCount = reader.getFieldCount();
+
+
+                    String fieldName;
+
+                    StringBuffer params = new StringBuffer();
+                    for( int x=0; x<fieldsCount; x++)
+                    {
+                        //依次获取字段名称
+                        DBFField field = reader.getField(x);
+                        fieldName = field.getName();
+                        //连接每个字段名称
+                        params.append(fieldName+",");
+
+                    }
+                    params.deleteCharAt(params.length()-1);
+                    params.append(")");
+
+
+                    Object[] rowValues;
+                    for(int x=0;(rowValues = reader.nextRecord()) != null;x++)
+                    {
+                        StringBuffer values = new StringBuffer();
+                        for( int j=0; j<rowValues.length; j++)
+                        {
+                            if(rowValues[j] == null)
+                                values.append("null"+",");
+                            else
+                                values.append("'"+rowValues[j].toString().trim()+"',");
+                        }
+                        values.deleteCharAt(values.length()-1);
+                        values.append(")");
+
+
+                        //生成插入语句字符串
+
+                        //重置每一行的数据
+                        values.delete(0, values.length());
+                        values.append("(");
+
+
+
+                    }
+
+
                 } else if (".xls".equals(lastName) || ".xlsx".equals(lastName)) {
 
                     String path = files[i].getPath();
@@ -87,7 +146,8 @@ public class TestRead {
                     // Excel的页签数量
                     int sheet_size = wookbook.getNumberOfSheets();
                     for (int ind = 0; ind < sheet_size; ind++) {
-                        //List<List> outerList = new ArrayList<List>();
+                        //List<List> outerList = new ArrayList<List>(
+                        // );
                         // 每个页签创建一个Sheet对象
                         Sheet sheet = wookbook.getSheetAt(ind);
 

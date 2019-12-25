@@ -2,6 +2,8 @@ package com.ysstech.demo.user.controller;
 
 
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @Date: 2019/12/6 15:46
  * @Description:
  */
+@Api(value = "通用页面跳转Controller",tags = "通用页面跳转")
 @Controller
 public class IndexController {
 
@@ -42,6 +45,7 @@ public class IndexController {
     * @Param [moduleName]
     * @returnType java.lang.String
     **/
+   @ApiOperation(value = "请求路径和页面相同，根据页面对应路径请求",notes = "请求路径和页面相同，根据页面对应路径请求")
     @RequestMapping("/page/{moduleName}")
     public String toPage(@PathVariable String moduleName) {
 

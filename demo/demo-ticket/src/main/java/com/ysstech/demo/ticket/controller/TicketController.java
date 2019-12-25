@@ -7,6 +7,9 @@ import com.sun.xml.internal.ws.resources.HttpserverMessages;
 import com.ysstech.demo.commons.entity.Ticket;
 import com.ysstech.demo.commons.service.TicketService;
 import com.ysstech.demo.commons.web.util.JsonResult;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,6 +25,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @Slf4j
+@Api(value = "车票服务",tags = {"车票服务"})
 @RestController
 public class TicketController {
 	
@@ -39,6 +43,8 @@ public class TicketController {
 	 * @Param [ticketId]
 	 * @returnType com.ysstech.demo.commons.web.util.JsonResult<java.util.List<com.ysstech.demo.commons.entity.Ticket>>
 	 **/
+	@ApiOperation(value = "通过车票id获取车票信息",notes = "通过车票id获取车票信息")
+	@ApiImplicitParam(name = "ticketId",value = "车票id",dataType = "Integer")
 	@GetMapping("/{ticketId}")
 	JsonResult<List<Ticket>> getTicket(@PathVariable Integer ticketId) throws Exception {
 		
