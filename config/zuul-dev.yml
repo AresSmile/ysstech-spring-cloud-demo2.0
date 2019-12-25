@@ -13,7 +13,7 @@ eureka:
 zuul:
   routes:
     user-service: /user-service/**
-#    ticket-service: /ticket-service/**
+    ticket-service: /ticket-service/**
 
 
 management:
